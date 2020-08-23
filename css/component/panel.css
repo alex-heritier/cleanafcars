@@ -1,0 +1,27 @@
+@import '../base.css';
+
+.panel {
+  --header-height: 0;
+
+  display: grid;
+  justify-content: center;
+  align-content: flex-start;
+  grid-template-columns: minmax(auto, 900px);
+  min-height: calc(100vh - var(--header-height) - 2vh);
+  overflow: auto;
+  background-color: #ecf0f1;
+}
+
+.panel .inner-panel {
+  margin: 100px var(--master-padding);
+  padding: 30px 20px;
+  background-color: white;
+  font-size: 18px;
+  color: black;
+  line-height: 1.8;
+}
+
+.inner-panel p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

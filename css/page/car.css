@@ -1,0 +1,39 @@
+@import '../component/footer.css';
+
+/********* Content */
+.content {
+  min-height: 90vh;
+}
+
+.content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.info {
+  padding: 10px;
+}
+
+.price {
+  color: #d44;
+}
+
+.description {
+  line-height: 1.4rem;
+}
+
+.spec p {
+  font-weight: bold;
+}
+
+.info a {
+  display: block;
+  width: 160px;
+  text-align: center;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: #0a0;
+  color: white;
+  border-radius: 2px;
+}

@@ -1,0 +1,27 @@
+@import '../component/footer.css';
+
+/********* Content */
+.content {
+  margin: 0 auto;
+  padding-bottom: 100px;
+  max-width: 1000px;
+  display: grid;
+  grid-gap: 30px;
+}
+
+.content-item {
+  background-color: #fcfcfc;
+  border-radius: 10px;
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.content-item img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.content-item .label {
+  padding: 12px;
+}

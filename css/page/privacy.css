@@ -1,0 +1,6 @@
+@import '../component/panel.css';
+@import '../component/footer.css';
+
+li {
+  margin-left: 20px;
+}
