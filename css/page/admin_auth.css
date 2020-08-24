@@ -1,0 +1,20 @@
+@import '../component/footer.css';
+
+/********* Form */
+form {
+  height: 96vh;
+  max-width: 260px;
+  margin: auto;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-gap: 10px;
+}
+
+form input {
+  padding: 10px;
+}
+
+form button {
+  display: block;
+}

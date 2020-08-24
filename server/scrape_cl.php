@@ -22,7 +22,7 @@ $xpath = new DomXPath($doc);
 # Price
 $nodeList = $xpath->query("//span[@class='price']");
 $node = $nodeList->item(0);
-$price = trim($node->nodeValue);
+$price = preg_replace("/[^0-9]/", "", trim($node->nodeValue));
 
 # Model
 $nodeList = $xpath->query("//p[@class='attrgroup']");
@@ -59,7 +59,7 @@ $drive = $drive[1];
 
 # Images
 $images = [];
-$nodeList = $xpath->query("//div[@id='thumbs']//img/@src");
+$nodeList = $xpath->query("//div[@id='thumbs']//a/@href");
 foreach ($nodeList as $n) {
   // echo "\$n<br>";
   // var_dump($n);
@@ -92,9 +92,9 @@ $response = array_filter([
   "miles" => $miles,
   "title_status" => $title_status,
   "drive" => $drive,
-  "images" => $images,
-  "location" => $location,
   "city" => $city,
+  "location" => $location,
+  "images" => $images,
 ]);
 
 echo json_encode($response);

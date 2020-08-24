@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Clean AF Cars | Edit</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700|Roboto:400|Bebas+Neue:400" rel="stylesheet">
+  <link rel="icon" href="/icon.jpg" />
+  <link href="/css/page/edit.css" rel="stylesheet">
+
+  <script src="/js/edit.js"></script>
+</head>
+<body>
+  <!-- Content -->
+  <div class="content">
+    <form method="post" action="/server/save_car.php">
+      <input name="cl_link" placeholder="Posting URL"/>
+      <input name="price" placeholder="Price"/>
+      <input name="model" placeholder="Model"/>
+      <input name="year" placeholder="Year"/>
+      <input name="transmission" placeholder="Transmission type (manual, auto)"/>
+      <input name="miles" placeholder="Miles driven"/>
+      <input name="title_status" placeholder="Title status"/>
+      <input name="drive" placeholder="Drive (fwd, awd, rwd)"/>
+      <input name="city" placeholder="City"/>
+      <input name="id" type="hidden"/>
+      <input name="redirect_url" type="hidden" value="/dashboard.html"/>
+      <div class="hidden-images"></div>
+
+      <button>Submit</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="divider"></div>
+    <div class="nav">
+      <p>© Clean AF Cars</p>
+      <p><a href="/privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</body>
+</html>
