@@ -5,29 +5,25 @@
 .content {
   margin: 0 auto;
   padding-bottom: 100px;
-  max-width: 800px;
   min-height: calc(96vh - 100px);
   display: grid;
-  align-content: flex-start;
+  align-content: center;
   grid-gap: 30px;
 }
 
 .content-item {
-  border-radius: 10px;
+  border-radius: 2px;
   display: grid;
-  grid-auto-flow: row;
 }
 
 .content-item a {
-  width: 100%;
   background-color: #fafafa;
 }
 
 .content-item img {
-  display: block;
   margin: auto;
-  width: 100%;
   max-height: 350px;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -36,8 +32,23 @@
 }
 
 @media only screen and (min-width: 800px) {
+  .content {
+    max-width: 1100px;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content-item {
+    grid-template-rows: 2fr 1fr;
+  }
+
   .content-item img {
-    max-height: 400px;
-    width: auto;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
