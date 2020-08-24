@@ -1,0 +1,11 @@
+@import '../component/panel.css';
+@import '../component/footer.css';
+
+/********* Content */
+.panel {
+  min-height: 96vh;
+}
+
+.panel a {
+  color: #08e;
+}
