@@ -13,7 +13,6 @@
 }
 
 .content-item {
-  background-color: #fcfcfc;
   border-radius: 10px;
   display: grid;
   grid-auto-flow: row;
