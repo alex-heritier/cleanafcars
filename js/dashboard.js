@@ -9,7 +9,9 @@ async function loadCars() {
     const elem = document.createElement('div');
     elem.className = "listing-item";
     elem.innerHTML = `
-    <img src="${(car['images'] || [''])[0]}" />
+    <a href="/car.php?id=${car['id']}">
+      <img src="${(car['images'] || [''])[0]}" />
+    </a>
     <div class="info">
       <span class="model">${car['model']}</span>
       <span class="price">\$${car['price']}</span>

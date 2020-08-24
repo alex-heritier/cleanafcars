@@ -4,7 +4,7 @@ async function loadCars() {
   console.log(response);
 
   const contentDom = document.querySelector('.content');
-  // contentDom.innerHTML = ''; // Remove children
+  contentDom.innerHTML = ''; // Remove children
   response.forEach((car) => {
     const elem = document.createElement('div');
     elem.className = "content-item";

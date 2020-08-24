@@ -20,7 +20,9 @@ async function loadCar() {
 function displayCar(car) {
   const content = document.querySelector('.content');
   content.innerHTML = `
-  <img src="${car['images'][0]}"/>
+  <div class="gallery">
+    <img class="banner" src="${car['images'][0]}"/>
+  </div>
 
   <div class="info">
     <h2>${car['model']}</h2>
