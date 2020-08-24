@@ -19,3 +19,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+@media only screen and (min-width: 800px) {
+  :root {
+    --master-padding: 80px;
+  }
+}

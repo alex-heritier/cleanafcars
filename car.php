@@ -1,0 +1,3 @@
+<?
+
+require 'template/car.html';

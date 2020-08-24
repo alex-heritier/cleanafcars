@@ -1,0 +1,14 @@
+@import '../base.css';
+
+/********* Header */
+.header {
+  padding: 10px var(--master-padding);
+  background-color: #222;
+  color: white;
+  font-size: 28px;
+}
+
+.header a {
+  text-decoration: none;
+  color: inherit;
+}

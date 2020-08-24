@@ -9,7 +9,7 @@ async function loadCars() {
     const elem = document.createElement('div');
     elem.className = "content-item";
     elem.innerHTML = `
-    <a href="/car.html?id=${car['id']}">
+    <a href="/car.php?id=${car['id']}">
       <img src="${car['images'][0]}"/>
     </a>
     <div class="label">
