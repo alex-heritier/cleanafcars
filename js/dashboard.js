@@ -14,7 +14,7 @@ async function loadCars() {
       <span class="model">${car['model']}</span>
       <span class="price">\$${car['price']}</span>
     </div>
-    <a class="edit-btn" href="edit_car.html?id=${car['id']}">Edit</a>
+    <a class="edit-btn" href="/admin/edit.html?id=${car['id']}">Edit</a>
     <button class="delete-btn" data-car-id="${car['id']}">Delete</button>
     `;
 
