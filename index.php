@@ -45,7 +45,8 @@ usort($cars, function($a, $b) {
     return $b['created_at'] - $a['created_at'];
 });
 
-foreach ($cars as $id => $car) {
+foreach ($cars as $i => $car) {
+  $id = $car['id'];
   $thumbnail = $car['images'][0];
   $model = ucwords($car['model']);
   $price = $car['price'];
