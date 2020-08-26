@@ -7,6 +7,21 @@ $car_id_param = $car_data["id"];
 unset($car_data["id"]);
 unset($car_data["redirect_url"]);
 
+# Format input data
+$car_data["model"] = ucwords($car_data["model"]);
+$car_data["transmission"] = ucwords($car_data["transmission"]);
+$car_data["title_status"] = ucwords($car_data["title_status"]);
+$car_data["city"] = ucwords($car_data["city"]);
+$car_data["drive"] = strtoupper($car_data["drive"]);
+$car_data["price"] = number_format($car_data["price"]);
+if (!empty($car_data["miles"])) {
+  $car_data["miles"] = number_format($car_data["miles"]);
+}
+if (empty($car_data["thumbnail"])) {
+  $thumb = ($car_data["images"] ?? [NULL])[0];
+  if ($thumb != NULL) $car_data["thumbnail"] = $thumb;
+}
+
 # Read database
 $json = json_decode(file_get_contents("../db/cars.json"), true);
 
