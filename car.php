@@ -59,7 +59,7 @@ echo <<<HTML
 
   <div class="spec">
     <p>$transmission</p>
-    <p>$miles</p>
+    <p>$miles miles</p>
   </div>
 
   <a href="$cl_link">View on Craigslist</a>

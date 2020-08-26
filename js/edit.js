@@ -32,7 +32,6 @@ function populateForm(car) {
 function getCarID() {
   const url = new URL(window.location.href);
   const carID = url.searchParams.get("id");
-  // console.log(carID);
   return carID;
 }
 
@@ -40,7 +39,9 @@ function getCarID() {
 async function onPostingUrlChange(pasteEvent) {
   const pastedText = pasteEvent.clipboardData.getData("text");
 
-  const response = await fetch('/server/scrape_cl.php?url=' + pastedText).then((r)=>r.json());
+  const response = await fetch('/server/scrape_cl.php?url=' + pastedText)
+    .then((r)=>r.json())
+    .catch((error)=>console.log(error));
   console.log(response);
 
   populateForm(response);
