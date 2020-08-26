@@ -57,7 +57,10 @@ if (empty($miles)) {
 if (empty($miles)) {
   $miles = NULL;
   preg_match("/(\d?\d?\d?,?\d?\d\d)[kK] miles?/", $raw_html, $miles);
-  $miles = $miles[1] . "000";
+  $miles = $miles[1];
+  if (!empty($miles)) {
+    $miles = $miles . "000";
+  }
 }
 
 # Title Status
