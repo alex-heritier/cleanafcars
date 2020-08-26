@@ -43,9 +43,22 @@ preg_match("/<span>transmission: <b>(\w+)<\/b><\/span>/", $raw_html, $transmissi
 $transmission = $transmission[1];
 
 # Miles
+## From specs
 $miles = NULL;
 preg_match("/<span>odometer: <b>(\d+)<\/b><\/span>/", $raw_html, $miles);
 $miles = $miles[1];
+## From description using format xxx,xxx miles
+if (empty($miles)) {
+  $miles = NULL;
+  preg_match("/(\d?\d\d,?\d\d\d) miles?/", $raw_html, $miles);
+  $miles = $miles[1];
+}
+## From description using format xxxk/K miles
+if (empty($miles)) {
+  $miles = NULL;
+  preg_match("/(\d?\d?\d?,?\d?\d\d)[kK] miles?/", $raw_html, $miles);
+  $miles = $miles[1] . "000";
+}
 
 # Title Status
 $title_status = NULL;
