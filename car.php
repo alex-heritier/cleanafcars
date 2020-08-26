@@ -40,12 +40,17 @@ HTML;
 
 $car = $json["cars"][$id];
 $thumbnail = $car['images'][0];
+$year = $car['year'];
 $model = $car['model'];
 $price = $car['price'];
 $description = $car['description'];
 $transmission = $car['transmission'];
 $miles = $car['miles'];
 $cl_link = $car['cl_link'];
+
+$title = "$year $model";
+$formatted_miles = empty($miles) ? "" : "$miles miles";
+
 echo <<<HTML
 
 <div class="gallery">
@@ -53,13 +58,13 @@ echo <<<HTML
 </div>
 
 <div class="info">
-  <h2>$model</h2>
+  <h2>$title</h2>
   <p class="price">\$$price</p>
   <p class="description">$description</p>
 
   <div class="spec">
     <p>$transmission</p>
-    <p>$miles miles</p>
+    <p>$formatted_miles</p>
   </div>
 
   <a href="$cl_link">View on Craigslist</a>

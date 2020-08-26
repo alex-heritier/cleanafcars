@@ -54,6 +54,9 @@ foreach ($cars as $i => $car) {
   $miles = $car['miles'];
   $year = $car['year'];
 
+  $title = "$year $model";
+  $formatted_miles = empty($miles) ? "" : "$miles miles |";
+
   echo <<<HTML
 
   <div class="content-item">
@@ -61,8 +64,8 @@ foreach ($cars as $i => $car) {
       <img src="$thumbnail"/>
     </a>
     <div class="label">
-      <h2>$model</h2>
-      <p>\$$price | $transmission | $miles miles | $year</p>
+      <h2>$title</h2>
+      <p>\$$price | $transmission | $formatted_miles $year</p>
     </div>
   </div>
 
