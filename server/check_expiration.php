@@ -7,6 +7,7 @@ $expiration_indicators = [
 
 $json = json_decode(file_get_contents("../db/cars.json"), true);
 
+$expired_count = 0;
 foreach ($json["cars"] as $id => $car) {
   $raw_html = file_get_contents($car['cl_link']);
 
@@ -19,6 +20,7 @@ foreach ($json["cars"] as $id => $car) {
 
   if (!$is_valid) {
     unset($json["cars"][$id]);
+    $expired_count++;
   }
 }
 
@@ -27,4 +29,4 @@ $w_file = fopen("../db/cars.json", "w");
 flock($w_file, LOCK_EX);
 fwrite($w_file, json_encode($json));
 
-echo json_encode(true);
+echo json_encode($expired_count);

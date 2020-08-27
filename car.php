@@ -59,10 +59,10 @@ echo <<<HTML
 
 <div class="info">
   <h2>$title</h2>
-  <p class="price">\$$price</p>
   <p class="description">$description</p>
 
   <div class="spec">
+    <p class="price">\$$price</p>
     <p>$transmission</p>
     <p>$formatted_miles</p>
   </div>
