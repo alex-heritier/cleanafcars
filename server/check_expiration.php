@@ -5,7 +5,9 @@ $expiration_indicators = [
   "The post has expired, or the post ID in the URL is invalid.",
 ];
 
-$json = json_decode(file_get_contents("../db/cars.json"), true);
+$db_path = $argv[1] ?? "../db/cars.json";
+
+$json = json_decode(file_get_contents($db_path), true);
 
 $expired_count = 0;
 foreach ($json["cars"] as $id => $car) {
@@ -25,7 +27,7 @@ foreach ($json["cars"] as $id => $car) {
 }
 
 # Write database
-$w_file = fopen("../db/cars.json", "w");
+$w_file = fopen($db_path, "w");
 flock($w_file, LOCK_EX);
 fwrite($w_file, json_encode($json));
 
