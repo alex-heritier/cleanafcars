@@ -44,7 +44,10 @@ if (empty($car_id_param)) { # no car_id, therefore CREATE car
   foreach ($email_json["emails"] as $email) {
     $subject = "Clean AF Cars - " . $car_data["year"] . " " . $car_data["model"];
     $message = "https://cleanafcars.com/car.php?id=" . $new_id;
-    mail($email, $subject, $message);
+    $headers = 'From: alex.heritier@gmail.com' . "\r\n" .
+      'Reply-To: alex.heritier@gmail.com' . "\r\n" .
+      'X-Mailer: PHP/' . phpversion();
+    mail($email, $subject, $message, $headers);
   }
 } else { # car_id exists, therefore EDIT car
   if (isset($json["cars"][$car_id_param])) {
