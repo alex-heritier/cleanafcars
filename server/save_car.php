@@ -37,6 +37,15 @@ if (empty($car_id_param)) { # no car_id, therefore CREATE car
   $car_data["created_at"] = $timestamp;
 
   $json["cars"][$new_id] = $car_data;
+
+  # Alert newsletter users
+  $email_db = $_SERVER['DOCUMENT_ROOT'] . "/db/emails.json";
+  $email_json = json_decode(file_get_contents($email_db), true);
+  foreach ($email_json["emails"] as $email) {
+    $subject = "Clean AF Cars - " . $car_data["year"] . " " . $car_data["model"];
+    $message = "https://cleanafcars.com/car.php?id=" . $new_id;
+    mail($email, $subject, $message);
+  }
 } else { # car_id exists, therefore EDIT car
   if (isset($json["cars"][$car_id_param])) {
     $timestamp = time();

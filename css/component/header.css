@@ -1,14 +1,26 @@
 @import '../base.css';
 
+:root {
+  --header-height: 50px;
+}
+
 /********* Header */
 .header {
+  height: var(--header-height);
+  box-sizing: border-box;
   padding: 10px var(--master-padding);
   background-color: #222;
   color: white;
   font-size: 28px;
+  display: grid;
+  align-content: center;
 }
 
 .header a {
   text-decoration: none;
   color: inherit;
+}
+
+.header .af {
+  font-weight: bold;
 }

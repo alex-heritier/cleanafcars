@@ -31,7 +31,7 @@ echo <<<HTML
 <body>
   <!-- Header -->
   <div class="header">
-    <a href="/">Clean AF Cars</a>
+    <a href="/">clean<span class="af">AF</span>cars</a>
   </div>
 
   <!-- Content -->

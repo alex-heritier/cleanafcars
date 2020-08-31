@@ -26,15 +26,39 @@ echo <<<HTML
 
   gtag('config', 'UA-176138363-1');
   </script>
+
+  <script src="/js/index.js"></script>
 </head>
 <body>
   <!-- Header -->
   <div class="header">
-    <span>Clean AF Cars</span>
+    <span>clean<span class="af">AF</span>cars</span>
   </div>
 
-  <!-- Content -->
-  <div class="content">
+  <main>
+    <!-- Intro -->
+    <div class="intro">
+      <div class="hook">
+        <p class="title">Cool cars, hand-picked from the internet.</p>
+        <p>Stop sorting through endless listings and find those hidden gems</p/>
+      </div>
+
+      <div class="mailing-list">
+        <div>
+          <h3>Know about all the cool online cars being sold. Near you. As they're posted.</h3>
+          <p>Get the first week of email alerts for free.</p>
+        </div>
+        <div class="email-form">
+          <input type="email" placeholder="Email"></input>
+          <button>Get Notified</button>
+        </div>
+        <span class="email-result">&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- Listing -->
+    <h2 class="heading">The Cars</h2>
+    <div class="listing">
 
 HTML;
 
@@ -59,7 +83,7 @@ foreach ($cars as $i => $car) {
 
   echo <<<HTML
 
-  <div class="content-item">
+  <div class="listing-item">
     <a href="/car.php?id=$id">
       <img src="$thumbnail"/>
     </a>
@@ -72,21 +96,21 @@ foreach ($cars as $i => $car) {
   HTML;
 }
 
-
 echo <<<HTML
 
-</div>
+    </div>
+  </main>
 
-<!-- Footer -->
-<div class="footer">
-  <div class="divider"></div>
-  <div class="nav">
-    <p>© Clean AF Cars</p>
-    <p><a href="/contact.html">Contact</a></p>
-    <p><a href="/privacy.html">Privacy</a></p>
+  <!-- Footer -->
+  <div class="footer">
+    <div class="divider"></div>
+    <div class="nav">
+      <p>© Clean AF Cars</p>
+      <p><a href="/contact.html">Contact</a></p>
+      <p><a href="/privacy.html">Privacy</a></p>
+    </div>
   </div>
-</div>
-</body>
+  </body>
 </html>
 
 HTML;
