@@ -3,6 +3,9 @@
 $to = "alex.heritier@gmail.com";
 $subject = "Clean AF Cars - Newsletter signup";
 $message = $_POST['email'] .  " registered for the newsletter.";
+$headers = 'From: Clean AF Cars' . "\r\n" .
+  'Reply-To: no-reply@cleanafcars.com' . "\r\n" .
+  'X-Mailer: PHP/' . phpversion();
 
 // Append email to email list
 $email_db = $_SERVER['DOCUMENT_ROOT'] . "/db/emails.json";
