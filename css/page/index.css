@@ -147,6 +147,10 @@ h2.heading {
     height: 100%;
     border-radius: 2px;
   }
+
+  .listing-item .label {
+    padding: 12px 0;
+  }
 }
 
 @media only screen and (min-width: 1000px) {

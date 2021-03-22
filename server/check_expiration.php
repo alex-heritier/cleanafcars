@@ -11,13 +11,24 @@ $json = json_decode(file_get_contents($db_path), true);
 
 $expired_count = 0;
 foreach ($json["cars"] as $id => $car) {
-  $raw_html = file_get_contents($car['cl_link']);
+  // Download the page's HTML
+  $raw_html = NULL;
+  try {
+    $raw_html = file_get_contents($car['cl_link']);
+  } catch (Exception $e) {
+    $raw_html = NULL;
+  }
 
-  $is_valid = true;
-  foreach ($expiration_indicators as $exp_indicator) {
-    $matches = [];
-    preg_match_all("/" . preg_quote($exp_indicator) .  "/", $raw_html, $matches, PREG_OFFSET_CAPTURE);
-    $is_valid = $is_valid && (count($matches) == 1 && count($matches[0]) == 0);
+  // Check the HTML for possible page expiration
+  if ($raw_html == NULL) {
+    $is_valid = false;
+  } else {
+    $is_valid = true;
+    foreach ($expiration_indicators as $exp_indicator) {
+      $matches = [];
+      preg_match_all("/" . preg_quote($exp_indicator) .  "/", $raw_html, $matches, PREG_OFFSET_CAPTURE);
+      $is_valid = $is_valid && (count($matches) == 1 && count($matches[0]) == 0);
+    }
   }
 
   if (!$is_valid) {
