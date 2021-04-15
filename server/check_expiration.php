@@ -3,6 +3,7 @@
 $expiration_indicators = [
   "This posting has been deleted by its author.",
   "The post has expired, or the post ID in the URL is invalid.",
+  "This posting has expired.",
 ];
 
 $db_path = $argv[1] ?? "../db/cars.json";
