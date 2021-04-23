@@ -1,15 +1,19 @@
 @import '../component/footer.css';
 
-/********* Action buttons */
-.action-btns {
-  display: grid;
+/********* Top section */
+.top-section {
   margin: 10px;
+  box-sizing: border-box;
+}
+
+.buttons {
+  display: grid;
   grid-auto-flow: column;
   justify-content: flex-start;
   grid-gap: 10px;
 }
 
-.action-btns button {
+.buttons button {
   color: white;
   padding: 6px;
   border: 1px solid gray;
@@ -22,6 +26,11 @@
 
 #check-expiration-btn {
   background-color: #08e;
+}
+
+input[name="quick_add"] {
+  width: 300px;
+  padding: 4px;
 }
 
 /********* Listing */
@@ -80,7 +89,7 @@
 }
 
 @media only screen and (min-width: 800px) {
-  .listing, .action-btns {
+  .listing, .top-section {
     margin: 10px auto;
     max-width: 1000px;
   }

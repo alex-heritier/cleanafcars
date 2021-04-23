@@ -51,8 +51,19 @@ async function checkExpiration() {
   loadCars();
 }
 
+/* Attempt to add car by craigslist URL */
+async function onQuickAdd(pasteEvent) {
+  const pastedText = pasteEvent.clipboardData.getData("text");
+  const response = await fetch('/server/scrape_cl.php?url=' + pastedText)
+    .then((r)=>r.json())
+    .catch((error)=>console.log(error));
+  console.log(response);
+}
+
 window.onload = function() {
   loadCars();
 
   document.querySelector('#check-expiration-btn').onclick = checkExpiration;
+
+  document.querySelector('input[name=quick_add]').onpaste = onQuickAdd;
 };
