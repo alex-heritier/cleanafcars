@@ -63,6 +63,7 @@ async function onQuickAdd(pasteEvent) {
     },
   )
     .then((r)=>r.json())
+    .then((_)=>document.querySelector('input[name=quick_add]').value='')
     .then((_)=> loadCars())
     .catch((error)=>console.log(error));
   console.log(response);
