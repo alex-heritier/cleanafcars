@@ -2,7 +2,7 @@
 async function loadCar() {
   const carID = getCarID();
 
-  const response = await fetch('/server/get_cars.php?id=' + carID).then((r)=>r.json());
+  const response = await fetch('/server/req_get_cars.php?id=' + carID).then((r)=>r.json());
   console.log(response);
 
   populateForm(response);
@@ -39,7 +39,7 @@ function getCarID() {
 async function onPostingUrlChange(pasteEvent) {
   const pastedText = pasteEvent.clipboardData.getData("text");
 
-  const response = await fetch('/server/scrape_cl.php?url=' + pastedText)
+  const response = await fetch('/server/req_scrape_cl.php?url=' + pastedText)
     .then((r)=>r.json())
     .catch((error)=>console.log(error));
   console.log(response);

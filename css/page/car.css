@@ -57,3 +57,9 @@
   color: white;
   border-radius: 2px;
 }
+
+.spec .posting-body {
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1.4;
+}

@@ -47,9 +47,11 @@ $description = $car['description'];
 $transmission = $car['transmission'];
 $miles = $car['miles'];
 $cl_link = $car['cl_link'];
+$posting_body = $car['body'];
 
 $title = "$year $model";
 $formatted_miles = empty($miles) ? "" : "$miles miles";
+$formatted_body = str_replace("\n", "<br>", $posting_body);
 
 echo <<<HTML
 
@@ -65,6 +67,8 @@ echo <<<HTML
     <p class="price">\$$price</p>
     <p>$transmission</p>
     <p>$formatted_miles</p>
+
+    <p class='posting-body'>$formatted_body</p>
   </div>
 
   <a href="$cl_link">View on Craigslist</a>

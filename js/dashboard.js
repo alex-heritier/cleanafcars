@@ -1,6 +1,6 @@
 /* Load cars */
 async function loadCars() {
-  const response = await fetch('/server/get_cars.php').then((r)=>r.json());
+  const response = await fetch('/server/req_get_cars.php').then((r)=>r.json());
   console.log(response);
 
   const listingDom = document.querySelector('.listing');
@@ -30,10 +30,10 @@ async function loadCars() {
 
 /* Delete a car */
 async function deleteCar(carID) {
-  const response = await fetch('/server/delete_car.php', {
+  const response = await fetch('/server/req_delete_car.php', {
     method: 'post',
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: 'id=' + carID
+    body: 'id=' + carID,
   }).then((r)=>r.json());
   console.log(response);
 
@@ -42,7 +42,7 @@ async function deleteCar(carID) {
 
 /* Check each car entry for expiration then reload car listing */
 async function checkExpiration() {
-  const response = await fetch('/server/check_expiration.php', {
+  const response = await fetch('/server/req_check_expiration.php', {
     method: 'post',
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
   }).then((r)=>r.json());
@@ -54,8 +54,16 @@ async function checkExpiration() {
 /* Attempt to add car by craigslist URL */
 async function onQuickAdd(pasteEvent) {
   const pastedText = pasteEvent.clipboardData.getData("text");
-  const response = await fetch('/server/scrape_cl.php?url=' + pastedText)
+  const response = await fetch(
+    '/server/req_quick_add.php',
+    {
+      method: 'post',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: 'url=' + pastedText,
+    },
+  )
     .then((r)=>r.json())
+    .then((_)=> loadCars())
     .catch((error)=>console.log(error));
   console.log(response);
 }

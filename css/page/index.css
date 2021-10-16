@@ -88,6 +88,10 @@ h2.heading {
   color: white;
 }
 
+.email-form button:hover {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 600px) {
   .email-form {
     grid-auto-flow: column;

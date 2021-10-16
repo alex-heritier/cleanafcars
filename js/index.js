@@ -28,7 +28,7 @@ window.onload = function(e) {
       return;
     }
 
-    fetch("/server/register_email.php", {
+    fetch("/server/req_register_email.php", {
       method: 'POST',
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
