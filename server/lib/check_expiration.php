@@ -7,7 +7,7 @@ function check_expiration() {
     "This posting has expired.",
   ];
 
-  $db_path = "../db/cars.json"; # $argv[1] ??
+  $db_path = $_SERVER['DOCUMENT_ROOT'] . "db/cars.json";
 
   $json = json_decode(file_get_contents($db_path), true);
 

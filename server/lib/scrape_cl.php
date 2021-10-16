@@ -109,11 +109,5 @@ function scrape_craigslist($url) {
     "images" => $images,
   ]);
 
-
-  // DEBUGGING
-  // echo "<br><br>";
-  // echo "<br><br><br><br>";
-  // echo htmlspecialchars($raw_html);
-
   return $response;
 }

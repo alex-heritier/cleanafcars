@@ -1,5 +1,6 @@
 <?php
 
+require_once 'lib/scrape_cl.php';
 require_once 'lib/save_car.php';
 
 $url = $_POST['url'];
