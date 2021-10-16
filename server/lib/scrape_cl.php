@@ -82,7 +82,6 @@ function scrape_craigslist($url) {
   preg_match("/^\(?(.+)\)$/", $raw_city, $city);
   $city = $city[1];
 
-
   # Location
   $location = [
     "lat" => $xpath->query("//div[@id='map']//@data-latitude")->item(0)->nodeValue,
@@ -107,6 +106,7 @@ function scrape_craigslist($url) {
     "location" => $location,
     "body" => $posting_body,
     "images" => $images,
+    "cl_link" => $url,
   ]);
 
   return $response;

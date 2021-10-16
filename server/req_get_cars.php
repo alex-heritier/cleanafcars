@@ -1,18 +1,14 @@
 <?
 
+require_once 'lib/car.php';
+
 $car_id = $_GET['id'];
 
-$json = json_decode(file_get_contents("../db/cars.json"), true);
-
 $response = NULL;
-
 if (empty($car_id)) {
-  $response = [];
-  foreach ($json["cars"] as $id => $car) {
-    array_push($response, $car);
-  }
+  $response = list_cars();
 } else {
-  $response = $json["cars"][$car_id];
+  $response = get_car($car_id);
 }
 
 echo json_encode($response);

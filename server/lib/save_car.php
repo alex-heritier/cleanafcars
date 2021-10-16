@@ -1,6 +1,7 @@
 <?
 
 require_once 'scrape_cl.php';
+require_once 'db.php';
 
 function save_car($car_data) {
   $car_id_param = $car_data["id"];
@@ -12,7 +13,7 @@ function save_car($car_data) {
   $car_data["title_status"] = ucwords($car_data["title_status"]);
   $car_data["city"] = ucwords($car_data["city"]);
   $car_data["drive"] = strtoupper($car_data["drive"]);
-  $car_data["price"] = number_format($car_data["price"]);
+  $car_data["price"] = number_format(preg_replace("/[$,]/i", "", $car_data["price"]));
   if (!empty($car_data["miles"])) {
     $car_data["miles"] = number_format($car_data["miles"]);
   }
@@ -22,7 +23,7 @@ function save_car($car_data) {
   }
 
   # Read database
-  $json = json_decode(file_get_contents("../db/cars.json"), true);
+  $json = read_db(DB_CAR);
 
   # Modify database
   if (empty($car_id_param)) { # no car_id, therefore CREATE car
@@ -38,8 +39,7 @@ function save_car($car_data) {
     $json["cars"][$new_id] = $car_data;
 
     # Alert newsletter users
-    $email_db = $_SERVER['DOCUMENT_ROOT'] . "/db/emails.json";
-    $email_json = json_decode(file_get_contents($email_db), true);
+    $email_json = read_db(DB_EMAIL);
     foreach ($email_json["emails"] as $email) {
       $subject = "Clean AF Cars - " . $car_data["year"] . " " . $car_data["model"];
       $message = "https://cleanafcars.com/car.php?id=" . $new_id;
@@ -60,7 +60,5 @@ function save_car($car_data) {
   }
 
   # Write database
-  $w_file = fopen("../db/cars.json", "w");
-  flock($w_file, LOCK_EX);
-  fwrite($w_file, json_encode($json));
+  save_db(DB_CAR, $json);
 }

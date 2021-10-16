@@ -1,5 +1,7 @@
 <?
 
+require_once 'db.php';
+
 function check_expiration() {
   $expiration_indicators = [
     "This posting has been deleted by its author.",
@@ -7,9 +9,7 @@ function check_expiration() {
     "This posting has expired.",
   ];
 
-  $db_path = $_SERVER['DOCUMENT_ROOT'] . "db/cars.json";
-
-  $json = json_decode(file_get_contents($db_path), true);
+  $json = read_db(DB_CAR);
 
   $expired_count = 0;
   foreach ($json["cars"] as $id => $car) {
@@ -44,9 +44,7 @@ function check_expiration() {
   }
 
   # Write database
-  $w_file = fopen($db_path, "w");
-  flock($w_file, LOCK_EX);
-  fwrite($w_file, json_encode($json));
+  save_db(DB_CAR, $json);
 
   return $expired_count;
 }
