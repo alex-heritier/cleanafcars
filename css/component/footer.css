@@ -1,6 +1,10 @@
 @import '../base.css';
 
 /********* Footer */
+.footer {
+  background-color: #222;
+}
+
 .divider {
   height: 30px;
   background-color: black;
@@ -20,11 +24,31 @@
   display: grid;
   align-content: center;
   grid-gap: 30px;
-  background-color: #222;
 }
 
 .nav p {
   margin: 0;
+  color: #eee;
+}
+
+.donation {
+  text-align: center;
+  padding: 10px;
+}
+
+.donation img {
+  width: 100px;
+  height: auto;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 6px;
+}
+
+.donation img:hover {
+  cursor: pointer;
+}
+
+.donation p, .donation h2 {
   color: #eee;
 }
 
@@ -33,5 +57,9 @@
     grid-template-columns: 1fr auto auto;
     text-align: left;
     padding: 30px var(--master-padding);
+  }
+
+  .donation {
+    text-align: center;
   }
 }

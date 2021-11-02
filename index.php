@@ -109,6 +109,11 @@ echo <<<HTML
       <p><a href="/contact.html">Contact</a></p>
       <p><a href="/privacy.html">Privacy</a></p>
     </div>
+    <div class="donation">
+      <a href="bitcoin:3Pfr1KoQB5eL4abwGknmxtXmpAp2ZMfesv"><img src="/img/bitcoin_qr.png"></a>
+      <h2>Support us with Bitcoin</h2>
+      <p>3Pfr1KoQB5eL4abwGknmxtXmpAp2ZMfesv</p>
+    </div>
   </div>
   </body>
 </html>
