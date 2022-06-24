@@ -8,7 +8,8 @@ require_once 'lib/save_car.php';
 $check_exp_result = check_expiration();
 
 # Scrape CL listings
-$scrape_url = 'https://sfbay.craigslist.org/search/cto?auto_title_status=1&max_price=8000&min_auto_year=1984&min_price=500&query=Mercedes';
+# OLD URL $scrape_url = 'https://sfbay.craigslist.org/search/cto?auto_title_status=1&max_price=8000&min_auto_year=1984&min_price=500&query=Mercedes';
+$scrape_url = 'https://sfbay.craigslist.org/search/cta?auto_title_status=1&auto_transmission=1&max_price=8000&min_auto_year=1998&min_price=2000&purveyor=owner&query=bmw';
 $results = scrape_craigslist_search($scrape_url, 5);
 foreach ($results as $res) {
   save_car($res);
